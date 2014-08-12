@@ -103,9 +103,32 @@ public class ProxyTest {
 }
 </xmp>
 </font>
-
+**Line 5:**Create an instance of the core calculator implementation CalculatorImpl.    
+**Line 7 - 10:**We create dynamic proxies using the Proxy.newProxyInstance() which is a static method. The newProxyInstance() methods takes 3 parameters.     
+**`public static Object newProxyInstance(ClassLoader loader, Class[] interfaces, InvocationHandler h)`**     
+Returns an instance of a proxy class for the specified interfaces that dispatches method invocations to the specified invocation handler.     
+**loader:**ClassLoader in which to load the dynamic proxy class.      
+**interfaces:**An array of interfaces to implement.      
+**h:**An InvocationHandler to forward all methods calls on the proxy to.       
+<font color="red">
+Note: Java Dynamic Proxy can only create proxy instance of classes which implement interfaces. Proxy API uses Java Reflection to create dynamic implementations of interfaces at runtime. This is why we call it java DYNAMIC proxy.      
+</font>
+Output of ProxyTest    
 <font size=4px>
 <xmp class="prettyprint linenums">
-
+Call to add method without using the proxy.
+[TARGET METHOD CALL] Result is 3
+---------------------------------------------
+Call to add method with +ve arguments using the proxy.
+[BEFORE METHOD CALL] The method add() begins with [1, 2]
+[TARGET METHOD CALL] Result is 3
+[AFTER METHOD CALL] The method add() ends with 3
+---------------------------------------------
+Call to add method with -ve arguments using the proxy.
+[BEFORE METHOD CALL] The method add() begins with [-1, 2]
+Exception in thread "main" java.lang.IllegalArgumentException: Positive numbers only
+	at LogginValidationHandler.invoke(ProxyTest.java:36)
+	at $Proxy0.add(Unknown Source)
+	at ProxyTest.main(ProxyTest.java:62)
 </xmp>
 </font>
