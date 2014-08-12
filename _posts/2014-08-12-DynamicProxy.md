@@ -132,3 +132,4 @@ Exception in thread "main" java.lang.IllegalArgumentException: Positive numbers 
 	at ProxyTest.main(ProxyTest.java:62)
 </xmp>
 </font>
+From:[http://www.techavalanche.com/2011/08/24/understanding-java-dynamic-proxy/](http://www.techavalanche.com/2011/08/24/understanding-java-dynamic-proxy/)
