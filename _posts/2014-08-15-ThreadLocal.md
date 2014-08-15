@@ -48,9 +48,14 @@ public class Main {
 </xmp>
 </font>
 程序输出结果如下：     
-![ThreadLocal](/images/Java/threadLocal.jpg)
+![ThreadLocal](/images/Java/threadLocal.jpg)     
+本地线程变量为每个使用这些变量的线程存储属性值。可以用get()方法读取值和使用set()方法改变值。如果第一次你访问本地线程变量的值，如果没有值给当前的线程对象，那么本地线程变量会调用initialValue()方法来设置值给线程并返回初始值。   
+从运行结果可以看出，Thread-0改变了format格式，但是Thread-2的默认format依然是初始值。
+**说明：**ThreadLocal类在Java8中通过引入一个函数`withInitial()`被延伸了，因此我们可以通过Lambda表达式很方便的创建ThreadLocal实例，例如，上面代码中创建ThreadLocal实例的地方可以修改为：
 <font size=4px>
 <xmp class="prettyprint linenums">
-
+private static final ThreadLocal<SimpleDateFormat> format = 
+	ThreadLocal.<SimpleDateFormat> withInitial
+	(() -> {return new SimpleDateFormat("yyyyMMdd HHmm");});
 </xmp>
 </font>
