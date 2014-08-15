@@ -15,7 +15,8 @@ import java.util.Random;
 
 class ThreadLocalExample implements Runnable {
 	//创建ThreadLocal<SimpleDateFormat>类对象，此催下有隐含实现initialValue()方法
-	private static final ThreadLocal<SimpleDateFormat> format = new ThreadLocal<SimpleDateFormat>() {
+	private static final ThreadLocal<SimpleDateFormat> format = 
+	new ThreadLocal<SimpleDateFormat>() {
 		protected SimpleDateFormat initialValue() {
 			return new SimpleDateFormat("yyyyMMdd HHmm");
 		}
