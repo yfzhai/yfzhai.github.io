@@ -15,7 +15,9 @@ JRE is the implementation of JVM, it provides platform to execute java programs.
 ### JDK vs JRE vs JVM      
 * JDK is for development purpose whereas JRE is for running the java programs.     
 * JDK and JRE both contains JVM so that we can run our java program.     
-* JVM is the heart of java programming language and provides platform independence.     
+* JVM is the heart of java programming language and provides platform independence.      
+下面我们看一个表示Java执行过程的图：       
+![jvm图](/images/Java/jvm.jpg)
 ### Just-in-time Compiler (JIT)
 Sometimes we heard this term and being it a part of JVM it confuses us. JIT is part of JVM that optimizes byte code to machine specific language compilation by compiling similar byte codes at same time, hence reducing overall time taken for compilation of byte code to machine specific language.      
 本文引用：[http://www.journaldev.com/546/difference-between-jdk-jre-and-jvm-in-java](http://www.journaldev.com/546/difference-between-jdk-jre-and-jvm-in-java)
