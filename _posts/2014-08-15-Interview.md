@@ -78,8 +78,58 @@ import static java.lang.Math.PI;
 double test = PI * 5;
 </xmp>
 </font>
-Use of static import can cause confusion, so it’s better to avoid it. Overuse of static import can make your program unreadable and unmaintainable.
-<font size=4px>
+Use of static import can cause confusion, so it’s better to avoid it. Overuse of static import can make your program unreadable and unmaintainable.     
+**21、What is try-with-resources in java?**      
+One of the Java 7 features is try-with-resources statement for automatic resource management. Before Java 7, there was no auto resource management and we should explicitly close the resource. Usually, it was done in the finally block of a try-catch statement. This approach used to cause memory leaks when we forgot to close the resource.      
+From Java 7, we can create resources inside try block and use it. Java takes care of closing it as soon as try-catch block gets finished. Read more at [Java Automatic Resource Management](http://www.journaldev.com/592/try-with-resource-example-java-7-feature-for-automatic-resource-management).      
+**22、What is multi-catch block in java?**     
+Java 7 one of the improvement was multi-catch block where we can catch multiple exceptions in a single catch block. This makes are code shorter and cleaner when every catch block has similar code. If a catch block handles multiple exception, you can separate them using a pipe (|) and in this case exception parameter (ex) is final, so you can’t change it. Read more at [Java multi catch block](http://www.journaldev.com/629/catching-multiple-exceptions-in-single-catch-and-rethrowing-exceptions-with-improved-type-checking-java-7-feature).      
+**23、What is static block?**      
+Java static block is the group of statements that gets executed when the class is loaded into memory by Java ClassLoader. It is used to initialize static variables of the class. Mostly it’s used to create static resources when class is loaded.      
+**24、What is an interface?**     
+Interfaces are core part of java programming language and used a lot not only in JDK but also java design patterns, most of the frameworks and tools. Interfaces provide a way to achieve abstraction in java and used to define the contract for the subclasses to implement. Interfaces are good for starting point to define Type and create top level hierarchy in our code. Since a java class can implements multiple interfaces, it’s better to use interfaces as super class in most of the cases. Read more at [java interface](http://www.journaldev.com/1601/what-is-interface-in-java-example-tutorial).      
+**25、What is an abstract class?**      
+Abstract classes are used in java to create a class with some default method implementation for subclasses. An abstract class can have abstract method without body and it can have methods with implementation also. Abstract keyword is used to create a abstract class. Abstract classes can’t be instantiated and mostly used to provide base for sub-classes to extend and implement the abstract methods and override or use the implemented methods in abstract class. Read important points about abstract classes at [java abstract class](http://www.journaldev.com/1582/abstract-class-in-java-with-example).      
+**26、What is the difference between abstract class and interface?**       
+Abstract keyword is used to create abstract class whereas interface is the keyword for interfaces. Abstract classes can have method implementations whereas interfaces can't. A class can extend only one abstract class but it can implement multiple interfaces. We can run abstract class if it has main() method whereas we can’t run an interface. Some more differences in detail are at [Difference between Abstract Class and Interface](http://www.journaldev.com/1607/difference-between-abstract-class-and-interface-in-java).     
+**27、Can an interface implement or extend another interface?**     
+Interfaces don’t implement another interface, they extend it. Since interfaces can’t have method implementations, there is no issue of diamond problem. That’s why we have multiple inheritance in interfaces i.e an interface can extend multiple interfaces.     
+**28、What is Marker interface?**     
+A marker interface is an empty interface without any method but used to force some functionality in implementing classes by Java. Some of the well known marker interfaces are Serializable and Cloneable.      
+**29、What are Wrapper classes?**      
+Java wrapper classes are the Object representation of eight primitive types in java. All the wrapper classes in java are immutable and final. Java 5 autoboxing and unboxing allows easy conversion between primitive types and their corresponding wrapper classes. Read more at [Wrapper classes in Java](http://www.journaldev.com/1002/java-wrapper-classes-tutorial-with-examples).       
+**30、What is Enum in Java?**      
+Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants. For example, in Java we can create Direction as enum with fixed fields as EAST, WEST, NORTH, SOUTH. Enum is the keyword to create an enum type and similar to class. Enum constants are implicitly static and final. Read more in detail at [java enum](http://www.journaldev.com/716/java-enum-examples-with-benefits-and-class-usage).      
+**31、What is Java Annotations?**      
+Java Annotations provide information about the code and they have no direct effect on the code they annotate. Annotations are introduced in Java 5. Annotation is metadata about the program embedded in the program itself. It can be parsed by the annotation parsing tool or by compiler. We can also specify annotation availability to either compile time only or till runtime also. Java Built-in annotations are @Override, @Deprecated and @SuppressWarnings. Read more at [java annotations](http://www.journaldev.com/721/java-annotations-tutorial-with-custom-annotation-example-and-parsing-using-reflection).      
+**32、What is Java Reflection API? Why it’s so important to have?**      
+Java Reflection API provides ability to inspect and modify the runtime behavior of java application. We can inspect a java class, interface, enum and get their methods and field details. Reflection API is an advanced topic and we should avoid it in normal programming. Reflection API usage can break the design pattern such as Singleton pattern by invoking the private constructor i.e violating the rules of access modifiers.      
+Even though we don’t use Reflection API in normal programming, it’s very important to have. We can’t have any frameworks such as Spring, Hibernate or servers such as Tomcat, JBoss without Reflection API. They invoke the appropriate methods and instantiate classes through reflection API and use it a lot for other processing. Read [Java Reflection Tutorial](http://www.journaldev.com/1789/java-reflection-tutorial-for-classes-methods-fields-constructors-annotations-and-much-more) to get in-depth knowledge of reflection api.      
+**33、What is composition in java?**     
+Composition is the design technique to implement has-a relationship in classes. We can use Object composition for code reuse. Java composition is achieved by using instance variables that refers to other objects. Benefit of using composition is that we can control the visibility of other object to client classes and reuse only what we need. Read more with example at [Java Composition](http://www.journaldev.com/1325/what-is-composition-in-java-java-composition-example) example.     
+**34、What is the benefit of Composition over Inheritance?**      
+One of the best practices of java programming is to “favor composition over inheritance”. Some of the possible reasons are:     
+※Any change in the superclass might affect subclass even though we might not be using the superclass methods. For example, if we have a method test() in subclass and suddenly somebody introduces a method test() in superclass, we will get compilation errors in subclass. Composition will never face this issue because we are using only what methods we need.      
+※Inheritance exposes all the super class methods and variables to client and if we have no control in designing superclass, it can lead to security holes. Composition allows us to provide restricted access to the methods and hence more secure.      
+※We can get runtime binding in composition where inheritance binds the classes at compile time. So composition provides flexibility in invocation of methods.      
+You can read more about above benefits of composition over inheritance at [java composition vs inheritance](http://www.journaldev.com/1775/multiple-inheritance-in-java-and-composition-vs-inheritance).      
+**35、How to sort a collection of custom Objects in Java?**     
+We need to implement Comparable interface to support sorting of custom objects in a collection. Comparable interface has compareTo(T obj) method which is used by sorting methods and by providing this method implementation, we can provide default way to sort custom objects collection. However, if you want to sort based on different criteria, such as sorting an Employees collection based on salary or age, then we can create Comparator instances and pass it as sorting methodology. For more details read [Java Comparable and Comparator](http://www.journaldev.com/780/java-comparable-and-comparator-example-to-sort-objects).       
+**36、What is inner class in java?**     
+We can define a class inside a class and they are called nested classes. Any non-static nested class is known as inner class. Inner classes are associated with the object of the class and they can access all the variables and methods of the outer class. Since inner classes are associated with instance, we can’t have any static variables in them. We can have local inner class or anonymous inner class inside a class. For more details read [java inner class](http://www.journaldev.com/996/java-nested-classes-java-inner-class-static-nested-class-local-inner-class-and-anonymous-inner-class).     
+**37、What is anonymous inner class?**     
+A local inner class without name is known as anonymous inner class. An anonymous class is defined and instantiated in a single statement. Anonymous inner class always extend a class or implement an interface. Since an anonymous class has no name, it is not possible to define a constructor for an anonymous class. Anonymous inner classes are accessible only at the point where it is defined.      
+**38、What is Classloader in Java?**      
+Java Classloader is the program that loads byte code program into memory when we want to access any class. We can create our own classloader by extending ClassLoader class and overriding loadClass(String name) method. Learn more at [java classloader](http://www.journaldev.com/349/java-interview-questions-understanding-and-extending-java-classloader).      
+**39、What are different types of classloaders?**      
+There are three types of built-in Class Loaders in Java:     
+A. Bootstrap Class Loader – It loads JDK internal classes, typically loads rt.jar and other core classes.     
+B. Extensions Class Loader – It loads classes from the JDK extensions directory, usually $JAVA_HOME/lib/ext directory.     
+C. System Class Loader – It loads classes from the current classpath that can be set while invoking a program using -cp or -classpath command line options.      
+**40、What is ternary operator in java?**     
+Java ternary operator is the only conditional operator that takes three operands. It’s a one liner replacement for if-then-else statement and used a lot in java programming. We can use ternary operator if-else conditions or even switch conditions using nested ternary operators. An example can be found at [java ternary operator](http://www.journaldev.com/963/java-ternary-operator-examples).     
+
+<font size=4px> 
 <xmp class="prettyprint linenums">
 
 </xmp>
