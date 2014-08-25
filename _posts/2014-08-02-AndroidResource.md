@@ -42,4 +42,43 @@ class CommonUtils{
 </xmp>
 </font>
 此后，在按钮的点击事件中可以判断`CommonUtils.isFastDoubleClick()`是否为真，进而做相应处理。     
+### Animation之transition
+transition是一种简单的动画显示。这种动画可以平滑的从一种图片变换为另一张图片，不是那种突兀的切换;transition可以简单的在两帧之间切换，常用于选择与被选择之间切换;XML文件包含切换的帧图片。transition标签作为容器，item为切换用的帧，android:drawable为图片id。TransitionDrawable获取transition中的资源，之后调用startTransition进行切换，该函数将第一帧切换到第二帧。reverseTransition是另一种切换方式，将反复切换两帧，会根据上一次切换的第二帧作为下一次切换的第一帧。下面布局文件可以作为ListView条目被选中时的背景色的渐变效果；使用`android:listSelector="@drawable/list_selector_background_transition"`      
+<font size=4px>
+<xmp class="prettyprint linenums">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ListView选项被按下时的背景色渐变 -->
+<transition xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <item android:drawable="@drawable/playlist_tile_pressed"/>
+    <item android:drawable="@drawable/playlist_tile_longpress"/>
+
+</transition>
+</xmp>
+</font>
+例子：
+<font size=4px>
+<xmp class="prettyprint linenums">
+<!-- list_selector.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:drawable="@drawable/left"/>
+    <item android:drawable="@drawable/right"/>
+
+</transition>
+</xmp>
+</font>
+<font size=4px>
+<xmp class="prettyprint linenums">
+imageView = (ImageView) findViewById(R.id.arrow);
+// 需要设置ImageView组件的src属性为android:src="@drawable/list_selector"
+// TransitionDrawable arrowDrawable = (TransitionDrawable)imageView.getDrawable();
+// arrowDrawable.reverseTransition(7000);
+TransitionDrawable arrowDrawable = (TransitionDrawable) getResources()
+		.getDrawable(R.drawable.list_selector);
+// 此时不需要设置ImageView的src属性
+imageView.setImageDrawable(arrowDrawable);
+arrowDrawable.startTransition(5000);
+</xmp>
+</font>
