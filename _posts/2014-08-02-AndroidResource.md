@@ -82,7 +82,7 @@ imageView.setImageDrawable(arrowDrawable);
 arrowDrawable.startTransition(5000);
 </xmp>
 </font>
-### Activity启动及推出时的动画显示
+### Activity启动及退出时的动画显示
 在开发过程中，为了增加效果感，有时需要设计Activity启动及推出时的动画，这时可以使用方法`overridePendingTransition()`来达到这种效果。`overridePendingTransition()`用于实现两个Activity切换时的动画，在Activity中使用(需要设置动画效果的Activity中或者调用startActivity()方法的Activity中设置都可以)，有两个参数，分别是进入动画和退出动画。     
 **注意：**必须在startActivity()或finish()之后立即调用；而且在2.1版本以上有效；手机设置-显示-动画，要开启状态     
 //实现淡入淡出效果
@@ -180,6 +180,49 @@ protected void onPause() {
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
 
+</set>
+</xmp>
+</font>
+//极具特色的动画效果 zoomin.xml
+<font size=4px>
+<xmp class="prettyprint linenums">
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator" >
+  <scale
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromXScale="0.1"
+        android:fromYScale="0.1"
+        android:pivotX="50%p"
+        android:pivotY="50%p"
+        android:toXScale="1.0"
+        android:toYScale="1.0" />
+  <alpha
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromAlpha="0"
+        android:toAlpha="1.0" />
+</set>
+</xmp>
+</font>
+//zoomout.xml
+<font size=4px>
+<xmp class="prettyprint linenums">
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:zAdjustment="top" >
+    <scale
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%p"
+        android:pivotY="50%p"
+        android:toXScale="0.1"
+        android:toYScale="0.1" />
+    <alpha
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromAlpha="1.0"
+        android:toAlpha="0" />
 </set>
 </xmp>
 </font>
