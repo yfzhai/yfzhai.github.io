@@ -28,6 +28,7 @@ ActionBar中的实体通常称作动作(action)，虽然可以通过代码来创
 showAsAction属性
 http://blog.csdn.net/stevenhu_223/article/details/8033153
 http://blog.csdn.net/xyz_lmn/article/details/8132420
+http://blog.csdn.net/yuxlong2010/article/details/9299507 [重要]
 
 
 

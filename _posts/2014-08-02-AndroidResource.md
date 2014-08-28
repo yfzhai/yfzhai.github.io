@@ -4,6 +4,15 @@ title: "Android资源汇总"
 ---    
 ## Android各种资源大合集，持续更新……
 -------------------------------------------  
+### 主题和样式
+在讨论这一部分之前，先来讨论一个大问题，主题和样式的区别。      
+**主题：**Theme是针对窗体级别的，改变窗体样式。在application和activity标签下使用。     
+**样式：**Style是针对窗体元素级别的，改变指定控件或者Layout的样式。在具体控件下使用。     
+那么怎么自定义主题和样式呢？按以下步骤：     
+1、在res/values目录下新建一个名叫style.xml的文件      
+2、对于每一个主题和样式，给&lt;style&gt;元素增加一个全局唯一的名字，和一个可选的父类属性      
+3、在&lt;style&gt;元素内部，申明一个或者多个&lt;item&gt;,每一个&lt;item&gt;定义了一个名字属性，并且在元素内部定义了这个风格的值      
+4、然后可以在其他XML资源，manifest或应用程序代码中引用这些自定义资源      
 ### Android自定义字体
 在Android中，用户可以自定义应用程序中的字体，只需要从网上下载所需字体(ttf格式)，放到assets/fonts文件夹中，之后可以通过Java代码进行设置所显示字体。     
 首先获得组件对象：TextView tv = (TextView)findViewById(R.id.textView);      
@@ -224,5 +233,162 @@ protected void onPause() {
         android:fromAlpha="1.0"
         android:toAlpha="0" />
 </set>
+</xmp>
+</font>
+### Android字符串
+1、Android系统提供了对简单的HTML标签的支持，方便开发者设置格式化的文本内容，比如斜体、粗体等。 通过`android.text.Html.fromHtml(String source)`，函数可以获取一个格式化后的文本显示对象。如果您的字符串在 strings.xml 文件中，则需要转义HTML标签，不然的话 经过Android处理后 所有的HTML标签都给过滤掉了。需要把所有的“<”用“&lt;”替换，例如:`<string name=”htmlText”>&lt;strong>粗体&lt;/strong></string>`，如果文本内容比较长， 则转义起来比较麻烦，并且阅读也不太方便，这种情况下可以使用XML的CDATA标记， 如下所示：   
+<font size=4px>
+<xmp class="prettyprint linenums">
+<string name="htmlText"> <![CDATA[ <p>HTML标记的文本内容 
+<strong>粗体</strong><em>斜体</em></p> 
+<p> <tt>teletype-style 字体</tt></p> ]]> 
+</string>
+</xmp>
+</font>
+2、字体大小     
+对于能够显示文字的控件（如TextView、EditText、RadioButton、Button、CheckBox、Chronometer等等），有时需要控制字体的大小。Android平台定义了三种字体大小。
+<font size=4px>
+<xmp class="prettyprint linenums">
+"?android:attr/textAppearanceLarge" 
+"?android:attr/textAppearanceMedium" 
+"?android:attr/textAppearanceSmall" 
+//使用方法为
+android:textAppearance="?android:attr/textAppearanceLarge"   
+android:textAppearance="?android:attr/textAppearanceMedium"     
+android:textAppearance="?android:attr/textAppearanceSmall" 
+//或
+style="?android:attr/textAppearanceLarge"   
+style="?android:attr/textAppearanceMedium"     
+style="?android:attr/textAppearanceSmall" 
+</xmp>
+</font>
+例如，`android:textAppearance`用于设置文字外观，如`?android:attr/textAppearanceLargeInverse`，这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观。     
+3、字体颜色
+<font size=4px>
+<xmp class="prettyprint linenums">
+//Android平台字体颜色
+android:textColor="?android:attr/textColorPrimary"
+android:textColor="?android:attr/textColorSecondary"
+android:textColor="?android:attr/textColorTertiary"
+android:textColor="?android:attr/textColorPrimaryInverse"
+android:textColor="?android:attr/textColorSecondaryInverse"
+</xmp>
+</font>
+4、Android的ProgressBar样式
+<font size=4px>
+<xmp class="prettyprint linenums">
+//水平进度条
+style="?android:attr/progressBarStyleHorizontal"
+//超大号圆形进度条
+style="?android:attr/progressBarStyleLarge"
+//小号圆形进度条
+style="?android:attr/progressBarStyleSmall"
+//标题性进度条
+style="?android:attr/progressBarStyleSmallTitle"
+</xmp>
+</font>
+5、分隔符
+<font size=4px>
+<xmp class="prettyprint linenums">
+//横向
+<View
+android:layout_width="fill_parent"
+android:layout_height="1dip"
+android:background="?android:attr/listDivider" />
+//纵向
+<View android:layout_width="1dip"
+android:layout_height="fill_parent"
+android:background="?android:attr/listDivider" />
+</xmp>
+</font>
+6、CheckBox样式
+<font size=4px>
+<xmp class="prettyprint linenums">
+style="?android:attr/starStyle"
+</xmp>
+</font>
+7、类似标题栏效果的TextView
+<font size=4px>
+<xmp class="prettyprint linenums">
+style="?android:attr/listSeparatorTextViewStyle"
+</xmp>
+</font>
+8、其它有用的样式
+<font size=4px>
+<xmp class="prettyprint linenums">
+android:layout_height="?android:attr/listPreferredItemHeight"
+android:paddingRight="?android:attr/scrollbarSize"
+style="?android:attr/windowTitleBackgroundStyle"
+style="?android:attr/windowTitleStyle"
+android:layout_height="?android:attr/windowTitleSize"
+android:background="?android:attr/windowBackground"
+</xmp>
+</font>
+9、修改Activity的标题栏样式
+<font size=4px>
+<xmp class="prettyprint linenums">
+//如在styles.xml中增加
+<resources> 
+    <style name="AutoWindowTitleBackground"> 
+        <item name="android:background">#778899</item> 
+    </style> 
+    <style name="autoWindowTitlebar" parent="android:Theme"> 
+        <item name="android:windowTitleSize">32dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/AutoWindowTitleBackground
+	</item>
+    </style> 
+</resources>
+//接着再修改AndroidManifest.xml文件，找到要自定义标题栏的Activity，
+//添加上android:theme值，比如：
+<activity android:name=".MainActivity" android:theme="@style/autoWindowTitlebar">
+</xmp>
+</font>
+10、去掉所有Activity界面的标题栏     
+修改AndroidManifest.xml，在application 标签中添加`android:theme=”@android:style/Theme.NoTitleBar”`。
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
+</xmp>
+</font>
+
+<font size=4px>
+<xmp class="prettyprint linenums">
+
 </xmp>
 </font>
