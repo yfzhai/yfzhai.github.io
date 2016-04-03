@@ -93,5 +93,5 @@ class MyAsyncTask extends AsyncTask<String, Integer, String> {
 		}
 	}
 </xmp>
-</font>
+</font>      
 **说明：调用方法，new MyAsyncTask().execute(Image_URL);
