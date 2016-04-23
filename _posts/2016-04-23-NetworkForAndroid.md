@@ -20,4 +20,4 @@ private boolean isNetworkAvailable() {
 }
 </xmp>
 </font>
-需要权限：<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>         
+需要权限：android.permission.ACCESS_NETWORK_STATE            
