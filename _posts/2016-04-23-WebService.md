@@ -6,31 +6,31 @@ title: "WebService网址"
 ## WebService网址
 ----------------------------------      
 **1、快递查询接口**           
-http://webservice.36wu.com/ExpressService.asmx         
+[http://webservice.36wu.com/ExpressService.asmx](http://webservice.36wu.com/ExpressService.asmx)               
 **2、ip查询接口**     
-http://webservice.36wu.com/ipService.asmx       
+[http://webservice.36wu.com/ipService.asmx](http://webservice.36wu.com/ipService.asmx)                
 **3、天气预报接口**     
-http://webservice.36wu.com/weatherService.asmx        
+[http://webservice.36wu.com/weatherService.asmx](http://webservice.36wu.com/weatherService.asmx)               
 **4、身份证查询接口**     
-http://webservice.36wu.com/IdCardService.asmx       
+[http://webservice.36wu.com/IdCardService.asmx](http://webservice.36wu.com/IdCardService.asmx)                
 **5、手机归属地接口**     
-http://webservice.36wu.com/MobilePhoneService.asmx      
+[http://webservice.36wu.com/MobilePhoneService.asmx](http://webservice.36wu.com/MobilePhoneService.asmx)             
 **6、翻译接口**     
-http://webservice.36wu.com/TranslationService.asmx      
+[http://webservice.36wu.com/TranslationService.asmx](http://webservice.36wu.com/TranslationService.asmx)             
 **7、火车时刻表接口**      
-http://webservice.36wu.com/TrainService.asmx      
+[http://webservice.36wu.com/TrainService.asmx](http://webservice.36wu.com/TrainService.asmx)            
 **8、股票查询接口**     
-http://webservice.36wu.com/StockService.asmx       
+[http://webservice.36wu.com/StockService.asmx](http://webservice.36wu.com/StockService.asmx)             
 **9、邮编接口**     
-http://webservice.36wu.com/ZipcodeService.asmx       
+[http://webservice.36wu.com/ZipcodeService.asmx](http://webservice.36wu.com/ZipcodeService.asmx)              
 **10、二维码**     
-http://webservice.36wu.com/DimensionalCodeService.asmx            
+[http://webservice.36wu.com/DimensionalCodeService.asmx](http://webservice.36wu.com/DimensionalCodeService.asmx)                  
 **11、公交查询**     
-http://webservice.36wu.com/mapService.asmx      
+[http://webservice.36wu.com/mapService.asmx](http://webservice.36wu.com/mapService.asmx)            
 **12、ISBN查询**     
-http://webservice.36wu.com/ISBNService.asmx      
+[http://webservice.36wu.com/ISBNService.asmx](http://webservice.36wu.com/ISBNService.asmx)            
 **13、ICP备案查询**      
-http://webservice.36wu.com/ICPServic.asmx      
+[http://webservice.36wu.com/ICPServic.asmx](http://webservice.36wu.com/ICPServic.asmx)             
 基于SOAP协议的远程调用，天气预报帮助类
 <font size=4px>
 <xmp class="prettyprint linenums">
